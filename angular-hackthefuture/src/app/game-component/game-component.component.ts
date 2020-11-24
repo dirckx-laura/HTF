@@ -29,16 +29,16 @@ export class GameComponentComponent implements OnInit {
   constructor( private router: Router, private service: ServiceService) { }
 
   ngOnInit(): void {
-    // this.difficultyNumber = 0;
-    // this.service.startLevel(this.difficultyNumber).subscribe(result =>{
-    //     this.gameId = result;
-    //     console.log(this.gameId);
+     this.difficultyNumber = 0;
+     this.service.startLevel(this.difficultyNumber).subscribe(result =>{
+         this.gameId = result;
+         console.log(this.gameId);
 
-    // }, (error) => {
-    //   console.log(error);
-    // }
+     }, (error) => {
+       console.log(error);
+     }
     
-    // )
+     )
 
     this.initBoard();
     

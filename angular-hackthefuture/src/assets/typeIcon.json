@@ -1,0 +1,16 @@
+[{
+    "name":"Empty",
+    "icon":"empty.png"
+},{
+    "name":"Firewall",
+    "icon":"firewall.png"
+},{
+    "name":"Netgull",
+    "icon":"netgull.png"
+},{
+    "name":"Mcafee",
+    "icon":"McAfee.png"
+},{
+    "name":"Player ",
+    "icon":"player.png"
+}]

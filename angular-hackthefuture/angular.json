@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "angular-hackthefuture"
+  "defaultProject": "angular-hackthefuture",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -18,6 +18,6 @@ export class ServiceService {
   }
 
   public startLevel(levelNumber : number){
-    return this.http.put<any>(this.apiURL + "start/" + levelNumber, levelNumber);
+    return this.http.put<any>(this.apiURL + "start/0", {diffculty : levelNumber});
   }
 }
