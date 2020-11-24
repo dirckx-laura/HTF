@@ -13,7 +13,8 @@ export class ServiceService {
 
   constructor(private http: HttpClient) {
 
-    this.apiURL = 'https://hackthefuture.dev.freebility.be/'
+    this.apiURL = 'https://hackthefuture.dev.freebility.be/fellowship/'
+  
   }
 
   public startLevel(levelNumber : number){

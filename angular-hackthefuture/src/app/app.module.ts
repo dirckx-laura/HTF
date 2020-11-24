@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GameComponentComponent } from './game-component/game-component.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ServiceService } from './service/service.service';
 
@@ -14,7 +15,8 @@ import { ServiceService } from './service/service.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]
