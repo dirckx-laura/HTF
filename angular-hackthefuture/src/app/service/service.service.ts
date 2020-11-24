@@ -9,6 +9,8 @@ export class ServiceService {
 
   private apiURL: string;
 
+  //const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
+
 
 
   constructor(private http: HttpClient) {
@@ -18,6 +20,12 @@ export class ServiceService {
   }
 
   public startLevel(levelNumber : number){
-    return this.http.put<any>(this.apiURL + "start/" + levelNumber, levelNumber);
+    const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
+
+    return this.http.post<string>(this.apiURL + "start/0", {'diffculty': levelNumber},  { headers, responseType: 'text' as 'json'});
+  }
+
+  public getCode(gameId: string){
+    return this.http.get(this.apiURL + gameId  + "/code");
   }
 }

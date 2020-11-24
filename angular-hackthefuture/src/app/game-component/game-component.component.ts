@@ -23,22 +23,26 @@ export class GameComponentComponent implements OnInit {
 
   ctx: CanvasRenderingContext2D;
   difficultyNumber: number;
-  gameId: number;
+  gameId: string;
   piece: BoardPiece;
 
   constructor( private router: Router, private service: ServiceService) { }
 
   ngOnInit(): void {
-    // this.difficultyNumber = 0;
-    // this.service.startLevel(this.difficultyNumber).subscribe(result =>{
-    //     this.gameId = result;
-    //     console.log(this.gameId);
-
-    // }, (error) => {
-    //   console.log(error);
-    // }
     
-    // )
+    this.difficultyNumber = 0;
+    this.service.startLevel(this.difficultyNumber).subscribe(result =>{
+        this.gameId = result;
+
+    }, (error) => {
+      console.log(error);
+    }   
+    )
+
+    
+    this.service.getCode(this.gameId).subscribe(result =>{
+      console.log(result);
+    })
 
     this.initBoard();
     
@@ -61,9 +65,11 @@ export class GameComponentComponent implements OnInit {
  
     var board =this.getEmptyBoard();
 
-   
+    
     this.piece = new BoardPiece(this.ctx);
     this.piece.draw();
+
+
 }
 
 
