@@ -9,15 +9,16 @@ export class BoardPiece implements IBoardPiece{
     type: Types;
 
     constructor(private ctx: CanvasRenderingContext2D) {
-        this.spawn();
+        this.spawn(this.x, this.y);
       }
     
-      spawn() {
+    
+      spawn(x: number, y:number) {
         this.color = "blue";
         this.type = Types.Empty;
         // Position where the shape spawns.
-        this.x = 3;
-        this.y = 0;
+        this.x = x;
+        this.y = y;
       }
 
       draw() {
