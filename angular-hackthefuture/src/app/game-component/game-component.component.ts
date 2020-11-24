@@ -25,27 +25,24 @@ export class GameComponentComponent implements OnInit {
   difficultyNumber: number;
   gameId: string;
   piece: BoardPiece;
-
+  boardPieces: any= [];
+  netgullLocations: any = [];
+  firewallLocations: any = [];
+  playerlocation: any = [];
+  mcafeelocation: any = [];
+  
   constructor( private router: Router, private service: ServiceService) { }
 
   ngOnInit(): void {
     
     this.difficultyNumber = 0;
     this.service.startLevel(this.difficultyNumber).subscribe(result =>{
-        this.gameId = result;
-
+        this.gameId = "547a3c80-356b-4d0a-a76e-ef3964178397";
     }, (error) => {
       console.log(error);
     }   
     )
-
-    
-    this.service.getCode(this.gameId).subscribe(result =>{
-      console.log(result);
-    })
-
     this.initBoard();
-    
   }
 
   initBoard() {
@@ -61,17 +58,26 @@ export class GameComponentComponent implements OnInit {
     return Array.from({ length: ROWS }, () => Array(COLS).fill(0));
   }
 
+
   play() {
- 
+    var object;
     var board =this.getEmptyBoard();
-
-    
     this.piece = new BoardPiece(this.ctx);
-    this.piece.draw();
 
-
+    this.service.getState(this.gameId).subscribe(result =>{
+  
+  
+      for(let i =0; i<result.firewallLocations.length; i++){
+        this.firewallLocations.push(result.firewallLocations[i]);
+        var x : number= (this.firewallLocations[i].x);
+         var y : number = (this.firewallLocations[i].y);
+        console.log(this.firewallLocations[i].x + " " + this.firewallLocations[i].y);
+        this.piece.spawn(this.firewallLocations[i].x, this.firewallLocations[i].y);
+        this.piece.draw();
+         
+       }
+      
+    });
+  }
 }
 
-
-
-}

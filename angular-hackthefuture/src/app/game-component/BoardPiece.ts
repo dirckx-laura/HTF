@@ -3,8 +3,8 @@ import { Types } from './Types';
 
 
 export class BoardPiece implements IBoardPiece{
-    x: number;
-    y: number;
+    x: string;
+    y: string;
     color: string;
     type: Types;
 
@@ -13,7 +13,7 @@ export class BoardPiece implements IBoardPiece{
       }
     
     
-      spawn(x: number, y:number) {
+      spawn(x: string, y:string) {
         this.color = "blue";
         this.type = Types.Empty;
         // Position where the shape spawns.
